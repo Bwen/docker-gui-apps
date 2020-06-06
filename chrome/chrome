@@ -1,0 +1,19 @@
+#!/bin/sh
+
+docker run \
+	--rm \
+	--net=host \
+	--name chrome \
+	--privileged \
+	-e DISPLAY=$DISPLAY \
+	-e ALSA_CARD=card0 \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v $HOME:/home/bwen \
+        -v /dev/shm:/dev/shm \
+        -v /etc/hosts:/etc/hosts \
+        --device /dev/snd \
+        --device /dev/dri \
+        --group-add video \
+	--group-add audio \
+	apps/chrome 
+

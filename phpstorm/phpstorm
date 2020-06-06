@@ -1,0 +1,13 @@
+#!/bin/sh
+
+docker run \
+	--rm \
+	--net=host \
+	--memory="2g" \
+	--memory-swap="2g" \
+	--name phpstorm \
+	-e DISPLAY=$DISPLAY \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v $HOME:/home/bwen \
+	apps/phpstorm
+
