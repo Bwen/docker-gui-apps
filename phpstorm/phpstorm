@@ -3,7 +3,7 @@
 docker run \
 	--rm \
 	--net=host \
-	--memory 1024mb \
+	--memory 2048mb \
 	--name phpstorm \
 	-e DISPLAY=$DISPLAY \
 	-u $(id -u):1000 \
