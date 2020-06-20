@@ -3,11 +3,16 @@
 docker run \
 	--rm \
 	--net=host \
-	--memory="2g" \
-	--memory-swap="2g" \
+	--memory 1024mb \
 	--name phpstorm \
 	-e DISPLAY=$DISPLAY \
+	-u $(id -u):1000 \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
-	-v $HOME:/home/bwen \
+	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
+	-v ${HOME}/Workspace:/home/gui/Workspace \
+	-v phpstorm_java:/home/gui/.java \
+	-v phpstorm_perfs:/home/gui/.PhpStorm2020.1 \
+	-v /etc/hosts:/etc/hosts \
+        -v /dev/shm:/dev/shm \
 	apps/phpstorm
 

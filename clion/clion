@@ -3,11 +3,19 @@
 docker run \
 	--rm \
 	--net=host \
+	--memory 1024mb \
 	--name clion \
 	-e DISPLAY=$DISPLAY \
+	-u $(id -u):1000 \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
-	-v $HOME:/home/bwen \
+	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
+	-v ${HOME}/Workspace:/home/gui/Workspace \
+	-v clion_java:/home/gui/.java \
+	-v clion_perfs:/home/gui/.CLion2020.1 \
+	-v clion_cargo:/home/gui/.cargo \
+	-v clion_xcargo:/home/gui/.xcargo \
+	-v clion_rustup:/home/gui/.rustup \
+	-v /etc/hosts:/etc/hosts \
+        -v /dev/shm:/dev/shm \
 	apps/clion
-	#--memory="2g" \
-	#--memory-swap="2g" \
 

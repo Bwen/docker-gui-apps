@@ -3,10 +3,15 @@
 docker run \
 	--rm \
 	--net=host \
+	--memory 512mb \
 	--name dbeaver \
 	-e DISPLAY=$DISPLAY \
+	-u $(id -u):1000 \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
-	-v $HOME:/home/bwen \
-	apps/dbeaver
-#	--hostname phpstorm \
+	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
+	-v dbeaver_java:/home/gui/.java \
+	-v dbeaver_local:/home/gui/.local \
+	-v dbeaver_cache:/home/gui/.eclipse \
+        -v /dev/shm:/dev/shm \
+	apps/dbeaver 
 

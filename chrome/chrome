@@ -4,16 +4,20 @@ docker run \
 	--rm \
 	--net=host \
 	--name chrome \
+	-e DISPLAY=unix$DISPLAY \
 	--privileged \
-	-e DISPLAY=$DISPLAY \
-	-e ALSA_CARD=card0 \
+	--cpuset-cpus 0 \
+	--memory 512mb \
+	-u $(id -u):1000 \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
-	-v $HOME:/home/bwen \
-        -v /dev/shm:/dev/shm \
+	-v ${HOME}/.Xauthority:/home/chrome/.Xauthority \
+	-v ${HOME}/Downloads:/home/chrome/Downloads \
+	-v chrome_data:/data \
+	-v chrome_local:/home/chrome/.local \
+	-v chrome_cache:/home/chrome/.cache \
+	-v /dev/shm:/dev/shm \
         -v /etc/hosts:/etc/hosts \
-        --device /dev/snd \
-        --device /dev/dri \
-        --group-add video \
-	--group-add audio \
+	--device /dev/dri \
 	apps/chrome 
+	#--device /dev/snd \
 
