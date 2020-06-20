@@ -1,0 +1,18 @@
+#!/bin/sh
+
+docker run \
+	--rm \
+	--net=host \
+	--name firefox \
+	-e DISPLAY=unix$DISPLAY \
+	-u $(id -u):1000 \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
+	-v ${HOME}/Downloads:/home/gui/Downloads \
+	-v firefox_cache:/home/gui/.cache \
+	-v firefox_perfs:/home/gui/.mozilla \
+	-v /etc/hosts:/etc/hosts \
+        --device /dev/dri \
+        --group-add video \
+	apps/firefox
+
