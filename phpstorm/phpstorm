@@ -11,8 +11,11 @@ docker run \
 	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
 	-v ${HOME}/Workspace:/home/gui/Workspace \
 	-v phpstorm_java:/home/gui/.java \
-	-v phpstorm_perfs:/home/gui/.PhpStorm2020.1 \
+	-v phpstorm_cache:/home/gui/.cache \
+	-v phpstorm_config:/home/gui/.config \
+	-v phpstorm_plugins:/gui-app/plugins \
+	-v phpstorm_license:/gui-app/license \
 	-v /etc/hosts:/etc/hosts \
         -v /dev/shm:/dev/shm \
-	apps/phpstorm
+	apps/phpstorm 
 

@@ -1,13 +1,14 @@
 FROM debian
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	apt-transport-https \
-	ca-certificates \
-	wget \
-	openssl \
-	curl \
-	git \
-	openjdk-11-jdk 
+	apt-transport-https\
+	ca-certificates\
+	wget\
+	openssl\
+	curl\
+	git\
+	openjdk-11-jdk\
+	openjfx
 
 ENV VERSION="2020.1"
 ENV FILE="PhpStorm-"${VERSION}".2.tar.gz"
@@ -23,7 +24,8 @@ RUN sed -i 's/PS1=/PS2=/g' /etc/bash.bashrc
 
 USER gui
 RUN mkdir -p /home/gui/.java
-RUN mkdir -p /home/gui/.PhpStorm${VERSION}
+RUN mkdir -p /home/gui/.cache
+RUN mkdir -p /home/gui/.config
 RUN mkdir -p /home/gui/Workspace
 
 COPY profile_gitbranch.sh /usr/bin/profile_gitbranch

@@ -11,6 +11,10 @@ docker run \
 	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
 	-v ${HOME}/Workspace:/home/gui/Workspace \
 	-v clion_java:/home/gui/.java \
+	-v clion_cache:/home/gui/.cache \
+	-v clion_config:/home/gui/.config \
+	-v clion_plugins:/gui-app/plugins \
+	-v clion_license:/gui-app/license \
 	-v clion_perfs:/home/gui/.CLion2020.1 \
 	-v clion_cargo:/home/gui/.cargo \
 	-v clion_xcargo:/home/gui/.xcargo \
