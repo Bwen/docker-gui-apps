@@ -17,7 +17,9 @@ docker run \
 	-v chrome_cache:/home/chrome/.cache \
 	-v /dev/shm:/dev/shm \
         -v /etc/hosts:/etc/hosts \
-	--device /dev/dri \
+        --device /dev/snd \
+        --device /dev/dri \
+        --group-add video \
+	--group-add audio \
 	apps/chrome 
-	#--device /dev/snd \
 

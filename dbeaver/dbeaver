@@ -9,6 +9,7 @@ docker run \
 	-u $(id -u):1000 \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
+	-v ${HOME}/Downloads:/home/gui/Downloads \
 	-v dbeaver_java:/home/gui/.java \
 	-v dbeaver_local:/home/gui/.local \
 	-v dbeaver_cache:/home/gui/.eclipse \

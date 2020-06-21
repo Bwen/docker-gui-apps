@@ -1,7 +1,7 @@
 FROM alpine
 
 RUN apk update && apk add --no-cache \
-	firefox \
+	firefox-esr \
 	alsa-lib \
 	ca-certificates \
 	hicolor-icon-theme \
@@ -9,9 +9,7 @@ RUN apk update && apk add --no-cache \
 	mesa-gl \
 	ttf-dejavu \
 	font-noto \
-	font-noto-extra \
-	font-noto-cjk \
-	font-noto-cjk-extra
+	font-noto-cjk
 
 ENV LANG en-US
 
