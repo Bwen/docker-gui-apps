@@ -29,7 +29,7 @@ RUN mkdir -p /home/gui/.config
 RUN mkdir -p /home/gui/Workspace
 
 COPY profile_gitbranch.sh /usr/bin/profile_gitbranch
-ENV export TERM=xterm-256color
-ENV PS1="\[\033[0;32m\]\t \[\033[0;31m\]\u\[\033[22;33m\]@\[\033[0;36m\]\h:\[\033[0;34m\]\w\$(profile_gitbranch)\[\033[0;37m\]: "
+RUN echo 'export TERM=xterm-256color' >> /home/gui/.bashrc
+RUN echo 'export PS1="\[\033[0;32m\]\\t \[\033[0;31m\]\u\[\033[22;33m\]@\[\033[0;36m\]\h:\[\033[0;34m\]\w\$(profile_gitbranch)\[\033[0;37m\]: "' >> /home/gui/.bashrc
 
 CMD ["/gui-app/bin/phpstorm.sh"]

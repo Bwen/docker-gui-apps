@@ -1,5 +1,19 @@
 #!/bin/sh
 
+GIT_PROFILES=""
+
+if [[ -f "${HOME}/.gitconfig" ]]; then
+  GIT_PROFILES="-v ${HOME}/.gitconfig:/home/gui/.gitconfig"
+fi
+
+if [[ -f "${HOME}/.gitconfig-work" ]]; then
+  GIT_PROFILES="${GIT_PROFILES} -v ${HOME}/.gitconfig-work:/home/gui/.gitconfig-work"
+fi
+
+if [[ -f "${HOME}/.gitconfig-personal" ]]; then
+  GIT_PROFILES="${GIT_PROFILES} -v ${HOME}/.gitconfig-personal:/home/gui/.gitconfig-personal"
+fi
+
 docker run \
 	--rm \
 	--net=host \
@@ -7,15 +21,17 @@ docker run \
 	--name clion \
 	-e DISPLAY=$DISPLAY \
 	-u $(id -u):1000 \
+	-v /etc/localtime:/etc/localtime:ro \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
 	-v ${HOME}/Workspace:/home/gui/Workspace \
+	$GIT_PROFILES \
 	-v clion_java:/home/gui/.java \
 	-v clion_cache:/home/gui/.cache \
 	-v clion_config:/home/gui/.config \
 	-v clion_plugins:/gui-app/plugins \
 	-v clion_license:/gui-app/license \
-	-v clion_perfs:/home/gui/.CLion2020.1 \
+	-v clion_perfs:/home/gui/.Clion2020.1 \
 	-v clion_cargo:/home/gui/.cargo \
 	-v clion_xcargo:/home/gui/.xcargo \
 	-v clion_rustup:/home/gui/.rustup \

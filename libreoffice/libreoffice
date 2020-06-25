@@ -8,13 +8,13 @@ docker run \
 	--memory 1024mb \
 	-e DISPLAY=unix$DISPLAY \
 	-u $(id -u):1000 \
+	-v /etc/localtime:/etc/localtime:ro \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
 	-v ${HOME}/Downloads:/home/gui/Downloads \
 	-v ${HOME}/Documents:/home/gui/Documents \
 	-v libreoffice_cache:/home/gui/.cache \
 	-v libreoffice_config:/home/gui/.config \
-	-v /etc/localtime:/etc/localtime:ro \
         -v /dev/shm:/dev/shm \
 	-e GDK_SCALE \
 	-e GDK_DPI_SCALE \
