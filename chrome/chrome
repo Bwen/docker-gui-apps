@@ -3,12 +3,14 @@
 docker run \
 	--rm \
 	--net=host \
+	--ipc=host \
 	--name chrome \
 	-e DISPLAY=unix$DISPLAY \
 	--privileged \
 	--cpuset-cpus 0 \
 	--memory 512mb \
 	-u $(id -u):1000 \
+	-v /etc/localtime:/etc/localtime:ro \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v ${HOME}/.Xauthority:/home/chrome/.Xauthority \
 	-v ${HOME}/Downloads:/home/chrome/Downloads \

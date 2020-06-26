@@ -4,6 +4,7 @@
 docker run \
 	--rm \
 	--net=host \
+	--ipc=host \
 	--memory="500m" \
 	--name postman \
 	-e DISPLAY=$DISPLAY \

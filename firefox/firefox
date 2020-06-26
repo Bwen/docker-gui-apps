@@ -4,10 +4,12 @@ docker run \
 	--rm \
 	--net=host \
 	--name firefox \
+	--privileged \
 	--memory 2048mb \
 	-e DISPLAY=unix$DISPLAY \
 	-u $(id -u):1000 \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v /etc/localtime:/etc/localtime:ro \
 	-v ${HOME}/.Xauthority:/home/gui/.Xauthority \
 	-v ${HOME}/Downloads:/home/gui/Downloads \
 	-v firefox_cache:/home/gui/.cache \
