@@ -26,6 +26,7 @@ USER gui
 RUN mkdir -p /home/gui/.java
 RUN mkdir -p /home/gui/.cache
 RUN mkdir -p /home/gui/.config
+RUN mkdir -p /home/gui/.local
 RUN mkdir -p /home/gui/Workspace
 
 COPY profile_gitbranch.sh /usr/bin/profile_gitbranch

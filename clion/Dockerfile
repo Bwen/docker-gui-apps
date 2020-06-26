@@ -34,6 +34,7 @@ RUN mkdir -p /home/gui/.config
 RUN mkdir -p /home/gui/.rustup
 RUN mkdir -p /home/gui/.cargo
 RUN mkdir -p /home/gui/.xcargo
+RUN mkdir -p /home/gui/.local
 RUN mkdir -p /home/gui/Workspace
 
 COPY profile_gitbranch.sh /usr/bin/profile_gitbranch
