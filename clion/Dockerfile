@@ -18,7 +18,10 @@ RUN mkdir /gui-app
 RUN tar -C /gui-app -xf $FILE --strip 1
 
 RUN apt-get update && apt-get install -y \
-	make cmake gcc g++
+	sudo make cmake gcc g++ libssl-dev openssl
+
+ENV OPENSSL_INCLUDE_DIR=/usr/include/openssl/
+ENV OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu/
 
 RUN adduser --home /home/gui --disabled-password gui
 RUN chown gui:gui -R /gui-app
