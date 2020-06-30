@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.12
 
 RUN apk update && apk add --no-cache \
 	--repository http://dl-cdn.alpinelinux.org/alpine/v3.12/community \
