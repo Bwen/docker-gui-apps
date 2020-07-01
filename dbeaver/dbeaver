@@ -3,7 +3,7 @@
 docker run \
 	--rm \
 	--net=host \
-	--memory 512mb \
+	--memory 1024mb \
 	--name dbeaver \
 	-e DISPLAY=$DISPLAY \
 	-u $(id -u):1000 \

@@ -17,6 +17,8 @@ RUN wget -q https://download.jetbrains.com/webide/${FILE}
 RUN mkdir /gui-app
 RUN tar -C /gui-app -xf $FILE --strip 1
 
+RUN apt-get update && apt-get install ssh
+
 RUN adduser --home /home/gui --disabled-password gui
 RUN chown gui:gui -R /gui-app
 

@@ -18,7 +18,7 @@ RUN mkdir /gui-app
 RUN tar -C /gui-app -xf $FILE --strip 1
 
 RUN apt-get update && apt-get install -y \
-	sudo make cmake gcc g++ libssl-dev openssl
+	sudo ssh make cmake gcc g++ libssl-dev
 
 ENV OPENSSL_INCLUDE_DIR=/usr/include/openssl/
 ENV OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu/
